@@ -50,10 +50,23 @@ def go(config: DictConfig):
             )
 
         if "basic_cleaning" in active_steps:
-            ##################
-            # Implement here #
-            ##################
-            pass
+            ## I need to create a flow run that grabes the artifact from that download creates "sample.csv" i am going to pass it 
+            ## though the basic cleaning and then create a new artifact of the cleaned data
+            _ = mlflow.run(
+                "src/basic_cleaning",
+                "main",
+                env_manager = "conda",
+                parameters={
+                    "input_artifact": "sample.csv:latest",
+                    "output_artifact": "clean_sample.csv",
+                    "output_type": "cleaned_data",
+                    "output_description": "Cleaned Data",
+                    "min_price": config["etl"]["min_price"],
+                    "max_price": config["etl"]["max_price"],
+                 
+                },
+            )
+        
 
         if "data_check" in active_steps:
             ##################
