@@ -124,9 +124,17 @@ def go(config: DictConfig):
 
         if "test_regression_model" in active_steps:
 
-            ##################
-            # Implement here #
-            ##################
+            _ = mlflow.run(
+                "components/test_regression_model",
+                "main",
+                env_manager = "conda",
+                parameters = {
+                    "mlflow_model":"random_forest_export:prod",
+                    "test_dataset": "test_data.csv:latest"
+                }
+            )
+
+           
 
             pass
 
