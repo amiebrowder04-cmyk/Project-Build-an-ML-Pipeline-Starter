@@ -182,6 +182,7 @@ Please, make sure all steps are using **the same** python version and that you h
 
 
 ## Project Links 
+https://wandb.ai/amie-browder04-western-governors-university/nyc_airbnb/overview
+
 https://github.com/amiebrowder04-cmyk/Project-Build-an-ML-Pipeline-Starter
 
-https://wandb.ai/amie-browder04-western-governors-university/nyc_airbnb?nw=nwuseramiebrowder04
